@@ -3,6 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api-service", "api-service", "{0E76CF0C-44DD-45C7-888A-A8E74520A21A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{49636195-12A1-4672-9AFE-A1A47785D302}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiLocacaoMoto", "api-service\Adapters\Primary\ApiLocacaoMoto.csproj", "{CFDC821A-EBCF-400A-B41C-CE82E8B6E25E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Secondary", "Secondary", "{82ECDC38-FC81-4BDA-A09D-1164269578D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MysqlDatabase", "api-service\Adapters\Secondary\Infra.Data.MySql\MysqlDatabase.csproj", "{8961B967-4A47-4129-A414-2C0C89710315}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMqPublisher", "api-service\Adapters\Secondary\Infra.Publisher.Rabbit\RabbitMqPublisher.csproj", "{19F16D4D-6D3D-4E1B-8C48-1B6E6D448D19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{982289ED-8208-43B1-9D87-B82C11604861}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "api-service\Core\Application\Application.csproj", "{721063D2-2CF7-4E30-928D-771C65AEDDAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "api-service\Core\Domain\Domain.csproj", "{B6EA72C2-D6D6-418E-9989-DC2CCEB52DF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "worker-consumer-queue-rabbitmq", "consumer-service\worker-consumer-queue-rabbitmq.csproj", "{BCF08802-13FD-44B8-AD0B-BB2CACE11157}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +30,41 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFDC821A-EBCF-400A-B41C-CE82E8B6E25E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFDC821A-EBCF-400A-B41C-CE82E8B6E25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFDC821A-EBCF-400A-B41C-CE82E8B6E25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFDC821A-EBCF-400A-B41C-CE82E8B6E25E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8961B967-4A47-4129-A414-2C0C89710315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8961B967-4A47-4129-A414-2C0C89710315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8961B967-4A47-4129-A414-2C0C89710315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8961B967-4A47-4129-A414-2C0C89710315}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F16D4D-6D3D-4E1B-8C48-1B6E6D448D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F16D4D-6D3D-4E1B-8C48-1B6E6D448D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F16D4D-6D3D-4E1B-8C48-1B6E6D448D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F16D4D-6D3D-4E1B-8C48-1B6E6D448D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{721063D2-2CF7-4E30-928D-771C65AEDDAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{721063D2-2CF7-4E30-928D-771C65AEDDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{721063D2-2CF7-4E30-928D-771C65AEDDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{721063D2-2CF7-4E30-928D-771C65AEDDAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6EA72C2-D6D6-418E-9989-DC2CCEB52DF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6EA72C2-D6D6-418E-9989-DC2CCEB52DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6EA72C2-D6D6-418E-9989-DC2CCEB52DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6EA72C2-D6D6-418E-9989-DC2CCEB52DF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCF08802-13FD-44B8-AD0B-BB2CACE11157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCF08802-13FD-44B8-AD0B-BB2CACE11157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCF08802-13FD-44B8-AD0B-BB2CACE11157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCF08802-13FD-44B8-AD0B-BB2CACE11157}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49636195-12A1-4672-9AFE-A1A47785D302} = {0E76CF0C-44DD-45C7-888A-A8E74520A21A}
+		{CFDC821A-EBCF-400A-B41C-CE82E8B6E25E} = {49636195-12A1-4672-9AFE-A1A47785D302}
+		{82ECDC38-FC81-4BDA-A09D-1164269578D5} = {49636195-12A1-4672-9AFE-A1A47785D302}
+		{8961B967-4A47-4129-A414-2C0C89710315} = {82ECDC38-FC81-4BDA-A09D-1164269578D5}
+		{19F16D4D-6D3D-4E1B-8C48-1B6E6D448D19} = {82ECDC38-FC81-4BDA-A09D-1164269578D5}
+		{982289ED-8208-43B1-9D87-B82C11604861} = {0E76CF0C-44DD-45C7-888A-A8E74520A21A}
+		{721063D2-2CF7-4E30-928D-771C65AEDDAF} = {982289ED-8208-43B1-9D87-B82C11604861}
+		{B6EA72C2-D6D6-418E-9989-DC2CCEB52DF6} = {982289ED-8208-43B1-9D87-B82C11604861}
 	EndGlobalSection
 EndGlobal
