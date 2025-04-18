@@ -1,4 +1,5 @@
 using Application;
+using Infra.Data.MySql;
 using Infra.Publisher.Rabbit;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services
     .AdicionaDependenciasInfraRabbitMq()
-    .AdicionaDependenciaApplication();
+    .AdicionaDependenciaApplication()
+    .AdicionaDependenciaDatabases();
 
 var app = builder.Build();
 

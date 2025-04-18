@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Secondary\Infra.Publisher.Rabbit\RabbitMqPublisher.csproj" />
     <ProjectReference Include="..\..\Core\Application\Application.csproj" />
+    <ProjectReference Include="..\Secondary\Infra.Data.MySql\MysqlDatabase.csproj" />
   </ItemGroup>
 
 </Project>

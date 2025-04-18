@@ -6,7 +6,7 @@ namespace Infra.Publisher.Rabbit.Moto
 {
     public class MotoPublishToQueue : IMotoPublishToQueue
     {
-        public async Task PublicaMenssagemParaFila(string mensagem)
+        public async Task PublicaMenssagemParaFilaAsync(string mensagem)
         {
             var factory = new ConnectionFactory { HostName = "localhost" };
             await using var connection = await factory.CreateConnectionAsync();
