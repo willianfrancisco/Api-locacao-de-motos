@@ -9,6 +9,7 @@ namespace Application
         public static IServiceCollection AdicionaDependenciaApplication(this IServiceCollection services)
         {
             services.AddScoped<IMotoUseCase,MotoUseCase>();
+            services.AddScoped<IEntregadorUseCase,EntregadorUseCase>();
             return services;
         }
     }

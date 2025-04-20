@@ -9,6 +9,7 @@ namespace Infra.Data.MySql
         public static IServiceCollection AdicionaDependenciaDatabases(this IServiceCollection services)
         {
             services.AddScoped<IMotoRepository, MotoRepository>();
+            services.AddScoped<IEntregadorRepository,EntregadorRepository>();
             return services;
         }
     }

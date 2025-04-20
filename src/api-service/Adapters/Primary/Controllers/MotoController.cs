@@ -33,7 +33,7 @@ namespace Primary.Controllers
         public async Task<IActionResult> CriarNovaMotoAsync([FromBody] CriarNovaMotoDto criarNovaMotoDto)
         {
             await _motoUseCase.PublicaMenssagemParaFilaAsync(criarNovaMotoDto);
-            return Ok();
+            return Created();
         }
 
         [HttpPut("{id}/placa")]
