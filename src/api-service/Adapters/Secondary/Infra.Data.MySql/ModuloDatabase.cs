@@ -10,6 +10,7 @@ namespace Infra.Data.MySql
         {
             services.AddScoped<IMotoRepository, MotoRepository>();
             services.AddScoped<IEntregadorRepository,EntregadorRepository>();
+            services.AddScoped<ILocacaoRepository, LocacaoRepository>();
             return services;
         }
     }

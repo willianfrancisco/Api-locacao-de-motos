@@ -10,6 +10,7 @@ namespace Application
         {
             services.AddScoped<IMotoUseCase,MotoUseCase>();
             services.AddScoped<IEntregadorUseCase,EntregadorUseCase>();
+            services.AddScoped<ILocacaoUseCase, LocacaoUseCase>();
             return services;
         }
     }

@@ -2,8 +2,8 @@ namespace Domain.Enums
 {
     public enum ETipoCNH
     {
-        A,
-        B,
-        AB
+        A = 1,
+        B = 2,
+        AB = 3
     }
 }
