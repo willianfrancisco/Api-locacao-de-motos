@@ -1,4 +1,3 @@
-using System.Text.Json;
 using Application.DTOs;
 using Application.Ports;
 using Domain.Ports;
@@ -11,12 +10,12 @@ namespace Application.UseCases
     ) : IEntregadorUseCase
     {
 
-        public async Task AtualizarFotoCNHentregador(int id, AtualizaFotoCnh novaFotoCnh)
+        public async Task AtualizarFotoCNHentregadorAsync(int id, AtualizaFotoCnh novaFotoCnh)
         {
-            var entregador = await _entregadorRepository.RecuperaEntregadorPeloId(id);
+            var entregador = await _entregadorRepository.RecuperaEntregadorPeloIdAsync(id);
 
             if (entregador != null && !string.IsNullOrEmpty(entregador.CNPJ))
-                _entregadorRepository.AtualizaFotoCNHEntregador(entregador.CNPJ, novaFotoCnh.novaFoto);
+                _entregadorRepository.AtualizaFotoCNHEntregadorAsync(entregador.CNPJ, novaFotoCnh.novaFoto);
 
         }
 
@@ -38,10 +37,10 @@ namespace Application.UseCases
             bool possuiCadastro = false;
 
             if (!string.IsNullOrEmpty(cnh))
-                possuiCnhCadastrada = await _entregadorRepository.RecuperaEntregadorPelaCNH(cnh) != null ? true : false;
+                possuiCnhCadastrada = await _entregadorRepository.RecuperaEntregadorPelaCNHAsync(cnh) != null ? true : false;
 
             if (!string.IsNullOrEmpty(cnpj))
-                possuiCnpjCadastrado = await _entregadorRepository.RecuperaEntregadorPeloCNPJ(cnpj) != null ? true : false;
+                possuiCnpjCadastrado = await _entregadorRepository.RecuperaEntregadorPeloCNPJAsync(cnpj) != null ? true : false;
 
             if (possuiCnhCadastrada || possuiCnpjCadastrado)
                 possuiCadastro = true;

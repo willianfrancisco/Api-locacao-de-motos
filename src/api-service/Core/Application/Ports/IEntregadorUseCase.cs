@@ -5,6 +5,6 @@ namespace Application.Ports
     public interface IEntregadorUseCase
     {
         Task CadastrarEntregadorAsync(CriarNovoEntregador novoEntregador);
-        Task AtualizarFotoCNHentregador(int id,AtualizaFotoCnh novaFotoCnh);
+        Task AtualizarFotoCNHentregadorAsync(int id,AtualizaFotoCnh novaFotoCnh);
     }
 }

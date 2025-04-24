@@ -12,16 +12,16 @@ namespace Primary.Controllers
     ) : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> CadastrarNovoEntregador([FromBody]CriarNovoEntregador novoEntregador)
+        public async Task<IActionResult> CadastrarNovoEntregadorAsync([FromBody]CriarNovoEntregador novoEntregador)
         {
             await _entregadorUseCase.CadastrarEntregadorAsync(novoEntregador);
             return Created();
         }
 
         [HttpPut("{id}/fotoCnh")]
-        public async Task<IActionResult> AtualizarFotoCnhEntregador([FromRoute]int id, [FromBody]AtualizaFotoCnh fotoCnh)
+        public async Task<IActionResult> AtualizarFotoCnhEntregadorAsync([FromRoute]int id, [FromBody]AtualizaFotoCnh fotoCnh)
         {
-            await _entregadorUseCase.AtualizarFotoCNHentregador(id, fotoCnh);
+            await _entregadorUseCase.AtualizarFotoCNHentregadorAsync(id, fotoCnh);
             return NoContent();
         }
     }

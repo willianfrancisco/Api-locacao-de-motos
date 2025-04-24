@@ -14,7 +14,7 @@ namespace Infra.Data.MySql.Repositories
     {
         private readonly string _connectionString = _configuration.GetConnectionString("ApiConnectionString") ?? "";
 
-        public void AtualizaFotoCNHEntregador(string cnpj, string fotoNova)
+        public void AtualizaFotoCNHEntregadorAsync(string cnpj, string fotoNova)
         {
             string pastaDeDestino = Path.Combine("..", "Secondary", "Infra.Data.MySql", "Dados");
             string caminhoArquivo = Path.Combine(pastaDeDestino, "empregados.json");
@@ -58,7 +58,7 @@ namespace Infra.Data.MySql.Repositories
             SalvarFotoCnh(entregador.CNPJ, entregador.FotoCNH);
         }
 
-        public async Task<Entregador> RecuperaEntregadorPelaCNH(string cnh)
+        public async Task<Entregador> RecuperaEntregadorPelaCNHAsync(string cnh)
         {
             using var connection = new MySqlConnection(_connectionString);
             connection.Open();
@@ -70,7 +70,7 @@ namespace Infra.Data.MySql.Repositories
             return entregador;
         }
 
-        public async Task<Entregador> RecuperaEntregadorPeloCNPJ(string cnpj)
+        public async Task<Entregador> RecuperaEntregadorPeloCNPJAsync(string cnpj)
         {
             using var connection = new MySqlConnection(_connectionString);
             connection.Open();
@@ -82,7 +82,7 @@ namespace Infra.Data.MySql.Repositories
             return entregador;
         }
 
-        public async Task<Entregador> RecuperaEntregadorPeloId(int id)
+        public async Task<Entregador> RecuperaEntregadorPeloIdAsync(int id)
         {
 
             using var connection = new MySqlConnection(_connectionString);

@@ -5,9 +5,9 @@ namespace Domain.Ports
     public interface IEntregadorRepository
     {
         Task CadastrarEntregadorAsync(Entregador entregador);
-        Task<Entregador> RecuperaEntregadorPeloCNPJ(string cnpj);
-        Task<Entregador> RecuperaEntregadorPelaCNH(string cnh);
-        Task<Entregador> RecuperaEntregadorPeloId(int id);
-        void AtualizaFotoCNHEntregador(string cnpj, string fotoNova);
+        Task<Entregador> RecuperaEntregadorPeloCNPJAsync(string cnpj);
+        Task<Entregador> RecuperaEntregadorPelaCNHAsync(string cnh);
+        Task<Entregador> RecuperaEntregadorPeloIdAsync(int id);
+        void AtualizaFotoCNHEntregadorAsync(string cnpj, string fotoNova);
     }
 }
