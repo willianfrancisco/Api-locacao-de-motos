@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "api-service\Core\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "worker-consumer-queue-rabbitmq", "consumer-service\worker-consumer-queue-rabbitmq.csproj", "{BCF08802-13FD-44B8-AD0B-BB2CACE11157}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Logger", "api-service\Adapters\Secondary\Infra.Logger\Infra.Logger.csproj", "{B42CBDB4-D5D0-4613-A600-F4E5E73C9AE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{BCF08802-13FD-44B8-AD0B-BB2CACE11157}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCF08802-13FD-44B8-AD0B-BB2CACE11157}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCF08802-13FD-44B8-AD0B-BB2CACE11157}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42CBDB4-D5D0-4613-A600-F4E5E73C9AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42CBDB4-D5D0-4613-A600-F4E5E73C9AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42CBDB4-D5D0-4613-A600-F4E5E73C9AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42CBDB4-D5D0-4613-A600-F4E5E73C9AE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{49636195-12A1-4672-9AFE-A1A47785D302} = {0E76CF0C-44DD-45C7-888A-A8E74520A21A}
@@ -66,5 +72,6 @@ Global
 		{982289ED-8208-43B1-9D87-B82C11604861} = {0E76CF0C-44DD-45C7-888A-A8E74520A21A}
 		{721063D2-2CF7-4E30-928D-771C65AEDDAF} = {982289ED-8208-43B1-9D87-B82C11604861}
 		{B6EA72C2-D6D6-418E-9989-DC2CCEB52DF6} = {982289ED-8208-43B1-9D87-B82C11604861}
+		{B42CBDB4-D5D0-4613-A600-F4E5E73C9AE4} = {82ECDC38-FC81-4BDA-A09D-1164269578D5}
 	EndGlobalSection
 EndGlobal

@@ -10,7 +10,7 @@ namespace Application.DTOs
     {
         public static LerMotoDto ConverterParaMotoDto(this Moto moto)
         {
-            return new LerMotoDto(moto.Id, moto.Ano, moto.Modelo, moto.Placa);
+            return new LerMotoDto(moto.Id, moto.Ano, moto.Modelo ?? "", moto.Placa ?? "");
         }
 
         public static List<LerMotoDto> ConverterParaListaMotoDto(this List<Moto> motos)

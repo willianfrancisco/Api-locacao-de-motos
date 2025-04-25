@@ -10,9 +10,6 @@ namespace Application.DTOs
     {
         public static LerLocacaoDto ConverterParaLocacaoDto(this Locacao locacao)
         {
-            if (locacao == null)
-                return null;
-
             return new LerLocacaoDto(locacao.Id, locacao.EntregadorId, locacao.MotoId, locacao.DataInicio, locacao.Plano, locacao.ValorDiaria, locacao.ValorTotalLocacao);
         }
 

@@ -4,6 +4,10 @@ namespace Domain.Entities
 {
     public class Entregador
     {
+        public Entregador()
+        {
+            
+        }
         public Entregador(string? nome, string? cNPJ, DateTime dataNascimento, string? numeroCNH, ETipoCNH tipoCNH)
         {
             Nome = nome;

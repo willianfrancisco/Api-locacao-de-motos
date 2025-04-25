@@ -2,6 +2,10 @@ namespace Domain.Entities
 {
     public class Moto
     {
+        public Moto()
+        {
+            
+        }
         public Moto(int ano, string? modelo, string? placa)
         {
             Ano = ano;

@@ -1,6 +1,8 @@
 using Application;
 using Infra.Data.MySql;
+using Infra.Logger;
 using Infra.Publisher.Rabbit;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,10 +13,21 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.Console()
+    .WriteTo.File("../Secondary/Infra.Logger/Logs/api-locacao-motos-log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+Log.Information("Aplicação iniciada.");
+
+builder.Host.UseSerilog();
+
 builder.Services
     .AdicionaDependenciasInfraRabbitMq()
     .AdicionaDependenciaApplication()
-    .AdicionaDependenciaDatabases();
+    .AdicionaDependenciaDatabases()
+    .AdicionaDependenciaLogger();
 
 var app = builder.Build();
 

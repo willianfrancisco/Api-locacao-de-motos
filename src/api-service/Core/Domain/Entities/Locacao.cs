@@ -2,6 +2,10 @@ namespace Domain.Entities
 {
     public class Locacao
     {
+        public Locacao()
+        {
+            
+        }
         public Locacao(int entregadorId, int motoId, DateTime dataInicio, int plano)
         {
             EntregadorId = entregadorId;
