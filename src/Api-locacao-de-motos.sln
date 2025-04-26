@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "worker-consumer-queue-rabbi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Logger", "api-service\Adapters\Secondary\Infra.Logger\Infra.Logger.csproj", "{B42CBDB4-D5D0-4613-A600-F4E5E73C9AE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiLocacaoMotos.Tests", "testes\ApiLocacaoMotos.Tests.csproj", "{ACF03BE6-7947-46CE-A34D-5562E8C87579}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{B42CBDB4-D5D0-4613-A600-F4E5E73C9AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B42CBDB4-D5D0-4613-A600-F4E5E73C9AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B42CBDB4-D5D0-4613-A600-F4E5E73C9AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACF03BE6-7947-46CE-A34D-5562E8C87579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACF03BE6-7947-46CE-A34D-5562E8C87579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACF03BE6-7947-46CE-A34D-5562E8C87579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACF03BE6-7947-46CE-A34D-5562E8C87579}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{49636195-12A1-4672-9AFE-A1A47785D302} = {0E76CF0C-44DD-45C7-888A-A8E74520A21A}
