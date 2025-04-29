@@ -7,5 +7,7 @@ namespace Infra.Data.MySql.Queries
         public static string QuerySelectLocacaoPeloId = "Select Id, EntregadorId, MotoId, DataInicio, DataTermino, DataDevolucao, Plano From Locacoes Where Id = @Id";
 
         public static string QueryAtualizaDataTerminoLocacao = "Update Locacoes Set DataDevolucao = @DataDevolucao Where Id = @Id";
+
+        public static string QuerySelectLocacaoPeloMotoId = "Select Id, EntregadorId, MotoId, DataInicio, DataTermino, DataDevolucao, Plano From Locacoes Where MotoId = @MotoId";
     }
 }

@@ -7,5 +7,6 @@ namespace Domain.Ports
         Task<Locacao> RecuperaLocacaoPorIdAsync(int id);
         Task CadastrarLocacaoAsync(Locacao locacao);
         Task AtualizaDataDevolucaoAsync(int id,DateTime novaDataDevolucao);
+        Task<Locacao> RecuperaLocacaoPorMotoIdAsync(int motoId);
     }
 }

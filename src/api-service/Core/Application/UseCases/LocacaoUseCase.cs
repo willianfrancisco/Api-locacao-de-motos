@@ -65,6 +65,21 @@ namespace Application.UseCases
             }
         }
 
+        public async Task<LerLocacaoDto> RecuperaLocacaoPorMotoIdAsync(int motoId)
+        {
+            try
+            {
+                _logger.LogInfo($"Realizada consultada para recuperar locacao pelo id da moto:{motoId}");
+                var locacao = await _locacaoRepository.RecuperaLocacaoPorMotoIdAsync(motoId);
+                return locacao.ConverterParaLocacaoDto();
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError($"Ocorreu um erro ao tentar recuperar locacao pelo id da moto, erro:{ex.Message}");
+                throw;
+            }
+        }
+
         private async Task<bool> ValidaSeExisteEntregadorMotoParaLocacao(int entregadorId, int motoId)
         {
             bool possuiCadastro = false;

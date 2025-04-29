@@ -116,5 +116,36 @@ namespace Infra.Data.MySql.Repositories
                 throw;
             }
         }
+
+        public async Task<Locacao> RecuperaLocacaoPorMotoIdAsync(int motoId)
+        {
+            try
+            {
+                using var connection = new MySqlConnection(_connectionString);
+                var query = LocacaoQueries.QuerySelectLocacaoPeloMotoId;
+                var locacao = await connection.QueryFirstOrDefaultAsync<Locacao>(query, new { MotoId = motoId });
+                return locacao ?? new Locacao();
+            }
+            catch (MySqlException ex)
+            {
+                _logger.LogError($"Ocorreu um erro no repositorio ao tentar recuperar locação por id, erro{ex.Message}");
+                throw;
+            }
+            catch (TimeoutException ex)
+            {
+                _logger.LogError($"Ocorreu um erro no repositorio ao tentar recuperar locação por id, erro{ex.Message}");
+                throw;
+            }
+            catch (InvalidOperationException ex)
+            {
+                _logger.LogError($"Ocorreu um erro no repositorio ao tentar recuperar locação por id, erro{ex.Message}");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Ocorreu um erro no repositorio ao tentar recuperar locação por id, erro{ex.Message}");
+                throw;
+            }
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace Application.Ports
         Task CadastraLocacaoAsync(CriaNovaLocacaoDto novaLocacaoDto);
         Task AtualizaDataDevolucaoAsync(int id, AtualizaLocacaoDto locacaoDto);
         Task<LerLocacaoDto> RecuperaLocacaoPorIdAsync(int id);
+        Task<LerLocacaoDto> RecuperaLocacaoPorMotoIdAsync(int motoId);
     }
 }

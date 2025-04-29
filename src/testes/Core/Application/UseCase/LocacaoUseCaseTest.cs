@@ -106,5 +106,36 @@ namespace testes.Core.Application.UseCase
             mockLocacaoRepository.Verify(ml => ml.RecuperaLocacaoPorIdAsync(1), Times.Once);
             mockLogger.Verify(l => l.LogInfo("Realizada consultada para locacao:1"));
         }
+
+        [Fact]
+        public async Task RecuperaLocacaoPorMotoIdAsync_Deve_Retornar_Uma_Locacao()
+        {
+            //Arrange
+            var mockLocacaoRepository = new Mock<ILocacaoRepository>();
+            var mockMotoRepository = new Mock<IMotoRepository>();
+            var mockEntregadorRepository = new Mock<IEntregadorRepository>();
+            var mockLogger = new Mock<ISerilogLogger>();
+
+            var locacao = new Locacao(
+                1,
+                1,
+                1,
+                It.IsAny<DateTime>(),
+                It.IsAny<DateTime>(),
+                It.IsAny<DateTime>(),
+                7
+            );
+
+            mockLocacaoRepository.Setup(l => l.RecuperaLocacaoPorMotoIdAsync(1)).ReturnsAsync(locacao);
+
+            var useCase = new LocacaoUseCase(mockLocacaoRepository.Object, mockMotoRepository.Object, mockEntregadorRepository.Object, mockLogger.Object);
+            
+            //Act
+            await useCase.RecuperaLocacaoPorMotoIdAsync(1);
+
+            //Assert
+            mockLocacaoRepository.Verify(ml => ml.RecuperaLocacaoPorMotoIdAsync(1), Times.Once);
+            mockLogger.Verify(l => l.LogInfo("Realizada consultada para recuperar locacao pelo id da moto:1"));
+        }
     }
 }

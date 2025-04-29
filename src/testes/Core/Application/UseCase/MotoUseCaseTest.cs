@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Application.DTOs;
+using Application.Ports;
 using Application.UseCases;
 using Domain.Entities;
 using Domain.Ports;
@@ -17,13 +18,14 @@ namespace testes.Core.Application.UseCase
             var mockMotoPublish = new Mock<IMotoPublishToQueue>();
             var mockMotoRepository = new Mock<IMotoRepository>();
             var mockLogger = new Mock<ISerilogLogger>();
+            var mockLocacaoUseCase = new Mock<ILocacaoUseCase>();
 
             var moto = new Moto(1, 2025, "Fazer 250", "PPOLT");
             var novaPlaca = new AtualizaPlacaMotoDto("APOLB");
 
             mockMotoRepository.Setup(mm => mm.RecuperarMotoPorIdAsync(1)).ReturnsAsync(moto);
 
-            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object, mockLogger.Object);
+            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object,mockLocacaoUseCase.Object, mockLogger.Object);
 
             //Act
             await useCase.AtualizaPlacaMotoAsync(1, novaPlaca);
@@ -40,11 +42,12 @@ namespace testes.Core.Application.UseCase
             var mockMotoPublish = new Mock<IMotoPublishToQueue>();
             var mockMotoRepository = new Mock<IMotoRepository>();
             var mockLogger = new Mock<ISerilogLogger>();
+            var mockLocacaoUseCase = new Mock<ILocacaoUseCase>();
 
             var moto = new Moto(1, 2025, "Fazer 250", "PPOLT");
 
             mockMotoRepository.Setup(mm => mm.RecuperarMotoPorIdAsync(1)).ReturnsAsync(moto);
-            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object, mockLogger.Object);
+            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object,mockLocacaoUseCase.Object, mockLogger.Object);
 
             //Act
             await useCase.DeletarMotoAsync(1);
@@ -61,12 +64,13 @@ namespace testes.Core.Application.UseCase
             var mockMotoPublish = new Mock<IMotoPublishToQueue>();
             var mockMotoRepository = new Mock<IMotoRepository>();
             var mockLogger = new Mock<ISerilogLogger>();
+            var mockLocacaoUseCase = new Mock<ILocacaoUseCase>();
 
             var moto = new Moto(1, 2025, "Fazer 250", "PPOLT");
 
             mockMotoRepository.Setup(mm => mm.RecuperarMotoPorIdAsync(1)).ReturnsAsync(moto);
 
-            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object, mockLogger.Object);
+            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object,mockLocacaoUseCase.Object, mockLogger.Object);
 
             //Act
             await useCase.RecuperarMotoPeloIdAsync(1);
@@ -83,12 +87,13 @@ namespace testes.Core.Application.UseCase
             var mockMotoPublish = new Mock<IMotoPublishToQueue>();
             var mockMotoRepository = new Mock<IMotoRepository>();
             var mockLogger = new Mock<ISerilogLogger>();
+            var mockLocacaoUseCase = new Mock<ILocacaoUseCase>();
 
             var moto = new Moto(1, 2025, "Fazer 250", "PPOLT");
 
             mockMotoRepository.Setup(mm => mm.RecuperarMotoPelaPlacaAsync("PPOLT")).ReturnsAsync(moto);
 
-            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object, mockLogger.Object);
+            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object,mockLocacaoUseCase.Object, mockLogger.Object);
 
             //Act
             await useCase.RecuperarMotoPelaPlacaAsync("PPOLT");
@@ -105,6 +110,7 @@ namespace testes.Core.Application.UseCase
             var mockMotoPublish = new Mock<IMotoPublishToQueue>();
             var mockMotoRepository = new Mock<IMotoRepository>();
             var mockLogger = new Mock<ISerilogLogger>();
+            var mockLocacaoUseCase = new Mock<ILocacaoUseCase>();
 
             var motos = new List<Moto> {
                 new Moto(1, 2025, "Fazer 250", "PPOLT"),
@@ -113,7 +119,7 @@ namespace testes.Core.Application.UseCase
 
             mockMotoRepository.Setup(mm => mm.ListarTodasMotosCadastradasAsync()).ReturnsAsync(motos);
 
-            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object, mockLogger.Object);
+            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object,mockLocacaoUseCase.Object, mockLogger.Object);
 
             //Act
             await useCase.RecuperarTodasMotosAsync();
@@ -130,13 +136,14 @@ namespace testes.Core.Application.UseCase
             var mockMotoPublish = new Mock<IMotoPublishToQueue>();
             var mockMotoRepository = new Mock<IMotoRepository>();
             var mockLogger = new Mock<ISerilogLogger>();
+            var mockLocacaoUseCase = new Mock<ILocacaoUseCase>();
 
             var moto = new CriarNovaMotoDto(2025,"Fazer","BPOAT");
             var mensagem = JsonConvert.SerializeObject(moto);
 
             mockMotoPublish.Setup(mm => mm.PublicaMenssagemParaFilaAsync(mensagem));
 
-            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object, mockLogger.Object);
+            var useCase = new MotoUseCase(mockMotoPublish.Object, mockMotoRepository.Object,mockLocacaoUseCase.Object, mockLogger.Object);
             //Act
             await useCase.PublicaMenssagemParaFilaAsync(moto);
 

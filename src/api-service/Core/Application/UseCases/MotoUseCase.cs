@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Application.DTOs;
 using Application.Ports;
 using Domain.Ports;
@@ -8,6 +9,7 @@ namespace Application.UseCases
     public class MotoUseCase(
         IMotoPublishToQueue _motoPublishToQueue,
         IMotoRepository _motoRepository,
+        ILocacaoUseCase _locacaoUseCase,
         ISerilogLogger _logger
         ) : IMotoUseCase
     {
@@ -35,8 +37,9 @@ namespace Application.UseCases
             try
             {
                 var moto = await _motoRepository.RecuperarMotoPorIdAsync(id);
+                var possuiLocacao = await PossuiLocacao(id);
 
-                if (moto != null)
+                if (moto != null && !possuiLocacao)
                 {
                     await _motoRepository.DeletarMotoAsync(id);
                     _logger.LogInfo($"Moto deletada com sucesso, moto:{id}");
@@ -107,6 +110,18 @@ namespace Application.UseCases
                 _logger.LogError($"Ocorreu um erro ao tentar recupera todas as motos. erro:{ex.Message}");
                 throw;
             }
+        }
+
+        private async Task<bool> PossuiLocacao(int motoId)
+        {
+            bool possuiLocacao = false;
+
+            var locacao = await _locacaoUseCase.RecuperaLocacaoPorMotoIdAsync(motoId);
+
+            if(locacao != null)
+                possuiLocacao = true;
+
+            return possuiLocacao;
         }
     }
 }
